@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">MiCocina</string>
+
+    <!--    Valores de LayoutLogin-->
+    <string name="txtPieLogin">Descubre y comparte recetas increibles</string>
+    <string name="txtusuarioLogin">Usuario</string>
+    <string name="txtContraseñaLogin">Contraseña</string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="txtCrearCuentaLogin">No tiene una cuenta</string>
+    <string name="btnRegistrarseLogin">Registrarse</string>
+    <!--    Fin Valores de LayoutLogin-->
+
+    <!--    Valores de LayoutInicio-->
+    <string name="txtRecetaInicio">Recetas para ti</string>
+    <string name="btnBuscar1">Buscar</string>
+    <!--   Fin de Valores de LayoutInicio-->
+
+    <!--    Valores de LayoutCrearReceta-->
+    <string name="txtTituloCrear">Crear Receta</string>
+    <string name="txtTituloReceta">Titulo de Receta</string>
+    <string name="txtHintTitulo">Ingrese el titulo de la receta</string>
+    <string name="txtIngrediente">Ingredientes</string>
+    <string name="txtHintIngrediente">Liste sus ingredientes</string>
+    <string name="txtInstrucciones">Instrucciones</string>
+    <string name="txtHintInstrucciones">Describa el paso a paso</string>
+    <string name="txtDificultadReceta">Dificultad de Receta</string>
+    <string name="txtTiempoPreparacion">Tiempo de Preparación</string>
+    <string name="txtHintTimepoPreparacion">Ingrese el tiempo estimado de la preparación de la receta.</string>
+    <string name="txtHintCategoria">Ingrese una categoria para la receta</string>
+    <string name="txtFavorito">Favorito</string>
+    <string name="txtFoto">Subir foto</string>
+    <string name="btnImgReceta">Subir imagen de la receta</string>
+    <string name="btnGuardarReceta">Guardar receta</string>
+    <!--   Fin de Valores de LayoutCrearReceta-->
+
+    <!-- Valores de LayoutBUscar-->
+    <string name="btnBuscar2">Buscar</string>
+    <!-- Fin de Valores de LayoutBUscar-->
+
+    <!-- Valores de LayoutPerfil-->
+    <string name="btnEditarPerfil">Editar Perfil</string>
+    <string name="txtCodUsuario">Código de Usuario</string>
+    <string name="txtNomUsuario">Nombre de Usuario</string>
+    <string name="txtCorreo">Correo</string>
+    <string name="txtDescripcion">Descripción</string>
+    <string name="txtBienvenido">Bienvenido</string>
+    <!-- Fin de Valores de LayoutPerfil-->
+
+    <!-- Valores de LayoutRegistrar-->
+    <string name="btnSelecFoto">Subir foto perfil</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="txtNomUsuario_Reg">Nombre de Usuario</string>
+    <string name="txtDescripUsuario_Reg">Descripción del Usuario</string>
+    <string name="txtContraseña_Reg">Contraseña</string>
+    <string name="txtCorreo_Reg">Correo</string>
+    <string name="txtSubirImg_Reg">Subir imagen</string>
+    <string name="imgPerfil_Reg" />
+    <string name="txtHintNomUsuario_Reg">Ingrese un nombre</string>
+    <string name="txtHintCorreo_Reg">Ingrese un correo electrónico</string>
+    <string name="txtHintContra_Reg">Ingrese una contraseña</string>
+    <string name="txtHintDescripUsuario_Reg">Ingrese descripción de usuario</string>
+    <string name="txtHintBuscar">Ingrese la receta a buscar</string>
+    <!-- Fin de Valores de LayoutRegistrar-->
+
+</resources>

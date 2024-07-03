@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inicio">
+
+    <TextView
+        android:id="@+id/txtRecetaInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/txtRecetaInicio"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="11dp"
+        android:text="@string/btnBuscar1"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtRecetaInicio" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerRecetasInicio"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/NavegadorPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/NavegadorPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_neutral70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/recyclerRecetasInicio"
+        app:layout_constraintStart_toStartOf="@id/recyclerRecetasInicio"
+        app:layout_constraintTop_toBottomOf="@id/recyclerRecetasInicio">
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/inicio"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintStart_toStartOf="@id/NavegadorPerfil"
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+            app:layout_constraintVertical_bias="0.514" />
+
+        <ImageButton
+            android:id="@+id/btnCrear"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/crear"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintEnd_toStartOf="@id/btnPerfil"
+            app:layout_constraintStart_toEndOf="@id/btnInicio"
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/perfil"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintEnd_toEndOf="@id/NavegadorPerfil"
+            app:layout_constraintStart_toEndOf="@id/btnCrear"
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

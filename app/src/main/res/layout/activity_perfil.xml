@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Perfil">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cabeceraPerfil"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/NavegadorPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imagenLogin"
+            android:layout_width="173dp"
+            android:layout_height="142dp"
+            android:layout_marginTop="84dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/tvBienvenido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/txtBienvenido"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenLogin"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/edtxtCodPerfil"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@string/txtCodUsuario"
+            android:textColor="@color/design_default_color_on_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBienvenido"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtxtNomPerfil"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@string/txtNomUsuario"
+            android:textColor="@color/design_default_color_on_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtxtCodPerfil"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtxtCorrepPerfil"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@string/txtCorreo"
+            android:textColor="@color/design_default_color_on_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtxtNomPerfil"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edtxtDescripPerfil"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@string/txtDescripcion"
+            android:textColor="@color/design_default_color_on_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtxtCorrepPerfil"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/btnEditarPerfil"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtxtDescripPerfil"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/NavegadorPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_neutral70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cabeceraPerfil">
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/inicio"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintStart_toStartOf="@id/NavegadorPerfil"
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+            app:layout_constraintVertical_bias="0.514" />
+
+        <ImageButton
+            android:id="@+id/btnCrear"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/crear"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintEnd_toStartOf="@id/btnPerfil"
+            app:layout_constraintStart_toEndOf="@id/btnInicio"
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/perfil"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintEnd_toEndOf="@id/NavegadorPerfil"
+            app:layout_constraintStart_toEndOf="@id/btnCrear"
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Buscar">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/CabeceraBuscar"
+      android:layout_width="409dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <EditText
+        android:id="@+id/edtxtBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/material_dynamic_neutral90"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:hint="@string/txtHintBuscar"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@id/btnAtras"
+        app:layout_constraintEnd_toStartOf="@id/btnBuscar"
+        app:layout_constraintStart_toEndOf="@id/btnAtras"
+        app:layout_constraintTop_toTopOf="@id/btnAtras" />
+
+    <ImageButton
+        android:id="@+id/btnAtras"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerCrop"
+        android:src="@drawable/atras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/btnBuscar2"
+        app:layout_constraintBottom_toBottomOf="@id/edtxtBuscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edtxtBuscar"
+        app:layout_constraintTop_toTopOf="@id/edtxtBuscar" />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerRecetasBuscar"
+      android:layout_width="415dp"
+      android:layout_height="538dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/NavegadorPerfil"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/NavegadorPerfil"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/material_dynamic_neutral70"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent">
+
+    <ImageButton
+        android:id="@+id/btnInicio"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="44dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/inicio"
+        app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+        app:layout_constraintStart_toStartOf="@id/NavegadorPerfil"
+        app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+        app:layout_constraintVertical_bias="0.514" />
+
+    <ImageButton
+        android:id="@+id/btnCrear"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/crear"
+        app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+        app:layout_constraintEnd_toStartOf="@id/btnPerfil"
+        app:layout_constraintStart_toEndOf="@id/btnInicio"
+        app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btnPerfil"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/perfil"
+        app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+        app:layout_constraintEnd_toEndOf="@id/NavegadorPerfil"
+        app:layout_constraintStart_toEndOf="@id/btnCrear"
+        app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
