@@ -15,13 +15,22 @@
     <string name="btnBuscar1">Buscar</string>
     <!--   Fin de Valores de LayoutInicio-->
 
+    <!-- Valores de LayoutDetalleReceta-->
+    <string name="txtTituloRecetaDetalle">Titulo de la Receta</string>
+    <string name="txtIngredientesDetalle">Texto para Ingrediente.</string>
+    <string name="txtDescrip_InstruccionesDetalle">Texto para Descripción/Instrucciones.</string>
+    <string name="txtTiempoPreparacionDetalle">Texto para Tiempo Preparación</string>
+    <string name="txtDificultadDetalle">Texto para Dificultad</string>
+    <string name="txtCategoriaDetalle">Texto para Categoria</string>
+    <!--   Fin de Valores de LayoutDetalleReceta-->
+
     <!--    Valores de LayoutCrearReceta-->
     <string name="txtTituloCrear">Crear Receta</string>
     <string name="txtTituloReceta">Titulo de Receta</string>
     <string name="txtHintTitulo">Ingrese el titulo de la receta</string>
     <string name="txtIngrediente">Ingredientes</string>
     <string name="txtHintIngrediente">Liste sus ingredientes</string>
-    <string name="txtInstrucciones">Instrucciones</string>
+    <string name="txtInstrucciones">Descripción/Instrucciones</string>
     <string name="txtHintInstrucciones">Describa el paso a paso</string>
     <string name="txtDificultadReceta">Dificultad de Receta</string>
     <string name="txtTiempoPreparacion">Tiempo de Preparación</string>
@@ -62,4 +71,12 @@
     <string name="txtHintBuscar">Ingrese la receta a buscar</string>
     <!-- Fin de Valores de LayoutRegistrar-->
 
+    <!-- Valores de LayoutRecetaInicio-->
+    <string name="txtNomUsuario_RecetaInicio">Nombre del usuario</string>
+    <string name="txtNomReceta_RecetaInicio">Nombre de la receta.</string>
+    <!-- Fin de Valores de LayoutRegistrar-->
+
+    <!-- Valores de LayoutBuscarReceta-->
+    <string name="txtNomReceta_BuscarReceta">Nombre de la receta.</string>
+    <!-- Fin de Valores de LayoutRegistrar-->
 </resources>

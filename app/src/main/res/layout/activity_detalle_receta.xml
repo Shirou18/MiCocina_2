@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleReceta">
+
+    <LinearLayout
+        android:id="@+id/cabeceraDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/txtTituloRecetaDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="@string/txtTituloRecetaDetalle"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/pieDetalle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cabeceraDetalle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contenedorDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="16dp">
+
+            <FrameLayout
+                android:id="@+id/frameImagenDetalle"
+                android:layout_width="327dp"
+                android:layout_height="322dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/contenedorDetalle"
+                tools:layout_editor_absoluteX="99dp"
+                tools:layout_editor_absoluteY="1dp">
+
+                <ImageView
+                    android:id="@+id/imagenDetella"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/txtIngredienteDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/txtIngredientesDetalle"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@id/frameImagenDetalle"
+                app:layout_constraintStart_toStartOf="@id/frameImagenDetalle"
+                app:layout_constraintTop_toBottomOf="@id/frameImagenDetalle" />
+
+            <TextView
+                android:id="@+id/txtDescripcionDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/txtDescrip_InstruccionesDetalle"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@id/txtIngredienteDetalle"
+                app:layout_constraintStart_toStartOf="@id/txtIngredienteDetalle"
+                app:layout_constraintTop_toBottomOf="@id/txtIngredienteDetalle" />
+
+
+            <TextView
+                android:id="@+id/txtTiempoPreparacionDetalle"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/txtTiempoPreparacionDetalle"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@id/txtDescripcionDetalle"
+                app:layout_constraintTop_toBottomOf="@id/txtDescripcionDetalle" />
+
+            <TextView
+                android:id="@+id/txtDificultadDetalle"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/txtDificultadDetalle"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@id/txtTiempoPreparacionDetalle"
+                app:layout_constraintTop_toBottomOf="@id/txtTiempoPreparacionDetalle" />
+
+            <TextView
+                android:id="@+id/txtCategoriaDetalle"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/txtCategoriaDetalle"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@id/txtDificultadDetalle"
+                app:layout_constraintTop_toBottomOf="@id/txtDificultadDetalle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pieDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="593dp">
+
+        <ImageButton
+            android:id="@+id/btnFavorito"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/favorito"
+            app:layout_constraintBottom_toBottomOf="@id/pieDetalle"
+            app:layout_constraintStart_toStartOf="@id/pieDetalle"
+            app:layout_constraintTop_toTopOf="@id/pieDetalle"
+            app:layout_constraintVertical_bias="0.514" />
+
+        <ImageButton
+            android:id="@+id/btnEditar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/edit"
+            app:layout_constraintBottom_toBottomOf="@id/pieDetalle"
+            app:layout_constraintEnd_toStartOf="@id/btnEliminar"
+            app:layout_constraintStart_toEndOf="@id/btnFavorito"
+            app:layout_constraintTop_toTopOf="@id/pieDetalle" />
+
+        <ImageButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/delete"
+            app:layout_constraintBottom_toBottomOf="@id/pieDetalle"
+            app:layout_constraintEnd_toEndOf="@id/pieDetalle"
+            app:layout_constraintStart_toEndOf="@id/btnEditar"
+            app:layout_constraintTop_toTopOf="@id/pieDetalle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

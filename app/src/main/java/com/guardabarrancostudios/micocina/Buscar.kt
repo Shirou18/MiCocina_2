@@ -37,8 +37,7 @@ class Buscar : AppCompatActivity() {
         }
 
         binding.btnBuscar.setOnClickListener{
-            val paginaBuscar = Intent(this, Buscar::class.java)
-            startActivity(paginaBuscar)
+
         }
     }
 }

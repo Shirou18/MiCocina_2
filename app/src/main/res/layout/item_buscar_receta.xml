@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/frameImagenReceta"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <ImageView
+                android:id="@+id/imgRecetaBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtTituloRecetaBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="64dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/txtNomReceta_BuscarReceta"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/frameImagenReceta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/frameImagenReceta"
+            app:layout_constraintTop_toTopOf="@id/frameImagenReceta" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
