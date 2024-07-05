@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation ("com.squareup.picasso:picasso:2.71828")  // Para Picasso
+    implementation ("com.github.bumptech.glide:glide:4.12.0")  // Para Glide
     implementation ("com.fasterxml.jackson.core:jackson-databind:2.12.3")
     implementation ("com.github.kittinunf.fuel:fuel:2.3.1")
     implementation ("com.github.kittinunf.fuel:fuel-jackson:2.3.1")
