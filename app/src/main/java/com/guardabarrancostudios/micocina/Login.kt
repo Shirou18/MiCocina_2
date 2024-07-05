@@ -57,7 +57,7 @@ class Login : AppCompatActivity() {
         val url = "http://www.micocina.somee.com/api/Usuarios_API"
 
         Fuel.get(url)
-            .responseObject<List<ModelUsuario>> { _, _, result ->
+            .responseObject<List<ModelLogin>> { _, _, result ->
                 result.fold(
                     success = { users ->
                         val user = users.find { it.nombreUsuario == username && it.contraseñaUsuario == password }

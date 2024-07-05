@@ -54,14 +54,14 @@ class Registrar : AppCompatActivity() {
             return
         }
 
-        val usuario = ModeloUsuario(
+        val usuario = ModelRegistrarUsuario(
             codigoUsuario, nombreUsuario, correoUsuario, contraseñaUsuario, "", descripcionUsuario
         )
 
         enviarUsuario(usuario)
     }
 
-    private fun enviarUsuario(usuario: ModeloUsuario) {
+    private fun enviarUsuario(usuario: ModelRegistrarUsuario) {
         val json = """
         {
             "codigoUsuario": "${usuario.codigoUsuario}",

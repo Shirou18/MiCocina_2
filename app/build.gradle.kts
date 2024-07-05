@@ -40,7 +40,10 @@ android {
 }
 
 dependencies {
-
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.12.3")
+    implementation ("com.github.kittinunf.fuel:fuel:2.3.1")
+    implementation ("com.github.kittinunf.fuel:fuel-jackson:2.3.1")
+    implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.google.android.material:material:1.8.0")
