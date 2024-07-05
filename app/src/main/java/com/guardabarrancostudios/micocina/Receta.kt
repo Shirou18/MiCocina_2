@@ -1,6 +1,7 @@
 package com.guardabarrancostudios.micocina
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -8,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.guardabarrancostudios.micocina.databinding.ActivityRecetaBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.result.Result
+
 
 class Receta : AppCompatActivity() {
     private lateinit var binding: ActivityRecetaBinding
+    private var selectedImageUri: Uri? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,6 +39,11 @@ class Receta : AppCompatActivity() {
             crearReceta()
         }
 
+        // Configuración del botón para seleccionar una imagen
+        binding.btnSeleccionarImagen.setOnClickListener {
+            seleccionarImagen()
+        }
+
         // Configuración de los botones de navegación
         binding.btnInicio.setOnClickListener {
             abrirInicio()
@@ -49,58 +57,92 @@ class Receta : AppCompatActivity() {
     private fun crearReceta() {
         val tituloReceta = binding.edtxtReceta.text.toString().trim()
         val ingredientes = binding.edtxtIngredientes.text.toString().trim()
-        val instrucciones = binding.edtxtInstrucciones.text.toString().trim()
+        val descripcionReceta = binding.edtxtInstrucciones.text.toString().trim()
         val tiempoPreparacion = binding.edtxtTiempoPreparacion.text.toString().trim()
-        val categoria = binding.edtxtCategoria.text.toString().trim()
+        val nombreCategoria = binding.edtxtCategoria.text.toString().trim()
 
         // Validaciones
-        if (tituloReceta.isEmpty() || ingredientes.isEmpty() || instrucciones.isEmpty() ||
-            tiempoPreparacion.isEmpty() || categoria.isEmpty()) {
+        if (tituloReceta.isEmpty() || ingredientes.isEmpty() || descripcionReceta.isEmpty() ||
+            tiempoPreparacion.isEmpty() || nombreCategoria.isEmpty()) {
             Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
         // Obtener la dificultad seleccionada
-        val dificultad = when (binding.radioDificultad.checkedRadioButtonId) {
+        val tipoDificultad = when (binding.radioDificultad.checkedRadioButtonId) {
             R.id.radioFacil -> "Fácil"
             R.id.radioMedio -> "Medio"
             R.id.radioDificil -> "Difícil"
-            else -> ""
+            else -> {
+                // Mostrar un mensaje al usuario para que seleccione una opción
+                binding.radioDificultad.requestFocus() // Establece el foco en el grupo de radio buttons
+                Toast.makeText(this, "Por favor, selecciona una dificultad", Toast.LENGTH_SHORT).show()
+                return // Salir del método o función
+            }
         }
-
+        //Constructor
         val receta = ModelReceta(
             tituloReceta,
             ingredientes,
-            instrucciones,
-            "", // Asignar valor por defecto a imagenReceta ya que no se recoge en el formulario
+            descripcionReceta,
             tiempoPreparacion,
-            categoria,
-            dificultad
+            nombreCategoria,
+            tipoDificultad,
+            "" // Asignar valor por defecto a imagenReceta ya que no se recoge en el formulario
         )
 
-        // Enviar la receta a través de Retrofit
+        // Enviar la receta a través de Fuel
         enviarReceta(receta)
     }
 
-
     private fun enviarReceta(receta: ModelReceta) {
-        val retrofitService = ApiClient.retrofitInstance.create(InterfazRetrofit_RecetasAPI::class.java)
-        val call = retrofitService.crearReceta(receta)
+        val json = """
+    {
+        "tituloReceta": "${receta.tituloReceta}",
+        "nombreCategoria": "${receta.nombreCategoria}",
+        "tipoDificultad": "${receta.tipoDificultad}",
+        "descripcionReceta": "${receta.descripcionReceta}",
+        "imagenReceta": "${receta.imagenReceta}", // Ajustar esta línea para incluir correctamente la imagen seleccionada
+        "tiempoPreparacion": "${receta.tiempoPreparacion}",
+        "ingredientes": "${receta.ingredientes}"
+    }
+""".trimIndent()
 
-        call.enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful) {
-                    Toast.makeText(this@Receta, "Receta creada correctamente", Toast.LENGTH_SHORT).show()
-                    abrirInicio()
-                } else {
-                    Toast.makeText(this@Receta, "Error al crear la receta", Toast.LENGTH_SHORT).show()
+
+        Fuel.post("http://www.micocina.somee.com/api/Recetas_API")
+            .header("Content-Type" to "application/json")
+            .body(json)
+            .response { request, response, result ->
+                when (result) {
+                    is Result.Failure -> {
+                        val ex = result.getException()
+                        runOnUiThread {
+                            Toast.makeText(this, "Error: ${ex.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                    is Result.Success -> {
+                        runOnUiThread {
+                            Toast.makeText(this, "Receta creada correctamente", Toast.LENGTH_LONG).show()
+                            abrirInicio()
+                        }
+                    }
                 }
             }
-            //Maneja los errores del dominio
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@Receta, "Error:${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
+    }
+
+    private fun seleccionarImagen() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+            type = "image/*"
+        }
+        startActivityForResult(intent, REQUEST_IMAGE_GET)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE_GET && resultCode == RESULT_OK) {
+            selectedImageUri = data?.data
+            binding.imgReceta.setImageURI(selectedImageUri)
+        }
     }
 
     private fun abrirInicio() {
@@ -113,5 +155,9 @@ class Receta : AppCompatActivity() {
         val intent = Intent(this, Perfil::class.java)
         startActivity(intent)
         finish()
+    }
+
+    companion object {
+        private const val REQUEST_IMAGE_GET = 1
     }
 }

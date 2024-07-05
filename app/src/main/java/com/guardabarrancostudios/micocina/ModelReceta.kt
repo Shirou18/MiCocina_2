@@ -4,15 +4,9 @@ data class ModelReceta(
     val tituloReceta: String,
     val ingredientes: String,
     val descripcionReceta: String,
-    val imagenReceta: String,
     val tiempoPreparacion: String,
     val nombreCategoria: String,
-    val tipoDificultad: String
+    val tipoDificultad: String,
+    val imagenReceta: String // Nuevo campo para la imagen
 )
 
-/*data class ModelRecetaInicio(
-    val id: Int,
-    val tituloReceta: String,
-    val descripcion: String,
-    val imagen: String
-)*/
