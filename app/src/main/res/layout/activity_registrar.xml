@@ -7,6 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".Registrar">
 
+    <TextView
+        android:id="@+id/tvCodigoUsuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/txtcodigo_Reg"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etCodigoUsuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/txtHintCodigo_Reg"
+        android:inputType="number"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCodigoUsuario" />
 
     <TextView
         android:id="@+id/tvDescripcionUsuario"
@@ -59,7 +86,7 @@
         app:icon="@drawable/camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgReceta" />
+        app:layout_constraintTop_toBottomOf="@id/imgUsuario" />
 
     <TextView
         android:id="@+id/tvNombreUsuario"
@@ -74,10 +101,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/etCodigoUsuario" />
 
     <ImageView
-        android:id="@+id/imgReceta"
+        android:id="@+id/imgUsuario"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"

@@ -66,6 +66,8 @@
     <string name="imgPerfil_Reg" />
     <string name="txtHintNomUsuario_Reg">Ingrese un nombre</string>
     <string name="txtHintCorreo_Reg">Ingrese un correo electrónico</string>
+    <string name="txtHintCodigo_Reg">Ingrese un numero de 4 digitos</string>
+    <string name="txtcodigo_Reg">Codigo de usuario</string>
     <string name="txtHintContra_Reg">Ingrese una contraseña</string>
     <string name="txtHintDescripUsuario_Reg">Ingrese descripción de usuario</string>
     <string name="txtHintBuscar">Ingrese la receta a buscar</string>
