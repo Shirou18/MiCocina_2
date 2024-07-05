@@ -1,6 +1,7 @@
 package com.guardabarrancostudios.micocina
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -8,26 +9,36 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.guardabarrancostudios.micocina.databinding.ActivityRecetaBinding
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.Result
-
+import com.guardabarrancostudios.micocina.databinding.ActivityRecetaBinding
 
 class Receta : AppCompatActivity() {
     private lateinit var binding: ActivityRecetaBinding
     private var selectedImageUri: Uri? = null
+    private lateinit var sharedPreferences: SharedPreferences
+    private var idUsuario: Int = -1 // Variable para almacenar el ID del usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityRecetaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Ajustar el padding para los insets de sistema
+
+        // Configurar bordes de la pantalla
+        enableEdgeToEdge()
+
+        // Ajustar padding para los insets del sistema
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Inicializar SharedPreferences
+        sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
+
+        // Obtener el ID del usuario guardado en SharedPreferences
+        idUsuario = sharedPreferences.getInt("idUsuario", -1)
 
         // Configuración del botón para crear receta
         binding.btnCrear.setOnClickListener {
@@ -55,15 +66,16 @@ class Receta : AppCompatActivity() {
     }
 
     private fun crearReceta() {
-        val tituloReceta = binding.edtxtReceta.text.toString().trim()
-        val ingredientes = binding.edtxtIngredientes.text.toString().trim()
-        val descripcionReceta = binding.edtxtInstrucciones.text.toString().trim()
+        val tituloReceta = binding.edtxtReceta.text.toString()
+        val ingredientes = binding.edtxtIngredientes.text.toString()
+        val descripcionReceta = binding.edtxtInstrucciones.text.toString()
         val tiempoPreparacion = binding.edtxtTiempoPreparacion.text.toString().trim()
         val nombreCategoria = binding.edtxtCategoria.text.toString().trim()
 
         // Validaciones
         if (tituloReceta.isEmpty() || ingredientes.isEmpty() || descripcionReceta.isEmpty() ||
-            tiempoPreparacion.isEmpty() || nombreCategoria.isEmpty()) {
+            tiempoPreparacion.isEmpty() || nombreCategoria.isEmpty()
+        ) {
             Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
@@ -76,19 +88,22 @@ class Receta : AppCompatActivity() {
             else -> {
                 // Mostrar un mensaje al usuario para que seleccione una opción
                 binding.radioDificultad.requestFocus() // Establece el foco en el grupo de radio buttons
-                Toast.makeText(this, "Por favor, selecciona una dificultad", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor, selecciona una dificultad", Toast.LENGTH_SHORT)
+                    .show()
                 return // Salir del método o función
             }
         }
-        //Constructor
+
+        // Construir el objeto ModelReceta
         val receta = ModelReceta(
+            idUsuario,
             tituloReceta,
             ingredientes,
             descripcionReceta,
             tiempoPreparacion,
             nombreCategoria,
             tipoDificultad,
-            "" // Asignar valor por defecto a imagenReceta ya que no se recoge en el formulario
+            "" // La imagen se asignará más adelante después de seleccionarla
         )
 
         // Enviar la receta a través de Fuel
@@ -98,6 +113,7 @@ class Receta : AppCompatActivity() {
     private fun enviarReceta(receta: ModelReceta) {
         val json = """
     {
+        "idUsuario": ${receta.idUsuario},
         "tituloReceta": "${receta.tituloReceta}",
         "nombreCategoria": "${receta.nombreCategoria}",
         "tipoDificultad": "${receta.tipoDificultad}",
@@ -107,7 +123,6 @@ class Receta : AppCompatActivity() {
         "ingredientes": "${receta.ingredientes}"
     }
 """.trimIndent()
-
 
         Fuel.post("http://www.micocina.somee.com/api/Recetas_API")
             .header("Content-Type" to "application/json")
@@ -122,7 +137,8 @@ class Receta : AppCompatActivity() {
                     }
                     is Result.Success -> {
                         runOnUiThread {
-                            Toast.makeText(this, "Receta creada correctamente", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Receta creada correctamente", Toast.LENGTH_LONG)
+                                .show()
                             abrirInicio()
                         }
                     }
@@ -142,19 +158,25 @@ class Receta : AppCompatActivity() {
         if (requestCode == REQUEST_IMAGE_GET && resultCode == RESULT_OK) {
             selectedImageUri = data?.data
             binding.imgReceta.setImageURI(selectedImageUri)
+
+            // Aquí deberías convertir la URI a un String que represente la imagen
+            // Esto puede ser un proceso donde subes la imagen a tu servidor y obtienes la URL de vuelta
+            // Por simplicidad, aquí asignaremos directamente una cadena vacía ("") a imagenReceta
+            // Para la implementación real, considera el proceso de subida de imágenes.
+            // receta.imagenReceta = selectedImageUri.toString()
         }
     }
 
     private fun abrirInicio() {
         val intent = Intent(this, Inicio::class.java)
         startActivity(intent)
-        finish()
+        finish() // Cierra la actividad actual
     }
 
     private fun abrirPerfil() {
         val intent = Intent(this, Perfil::class.java)
         startActivity(intent)
-        finish()
+        finish() // Cierra la actividad actual
     }
 
     companion object {

@@ -1,6 +1,7 @@
 package com.guardabarrancostudios.micocina
 
 data class ModelReceta(
+    val idUsuario: Int, // Nuevo campo para el ID del usuario
     val tituloReceta: String,
     val ingredientes: String,
     val descripcionReceta: String,
@@ -9,4 +10,5 @@ data class ModelReceta(
     val tipoDificultad: String,
     val imagenReceta: String // Nuevo campo para la imagen
 )
+
 
