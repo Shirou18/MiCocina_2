@@ -52,6 +52,7 @@
     <string name="txtNomUsuario">Nombre de Usuario</string>
     <string name="txtCorreo">Correo</string>
     <string name="txtDescripcion">Descripción</string>
+    <string name="txtcontarseña">Contraseña</string>
     <string name="txtBienvenido">Bienvenido</string>
     <!-- Fin de Valores de LayoutPerfil-->
 

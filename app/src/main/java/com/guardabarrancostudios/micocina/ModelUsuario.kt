@@ -17,10 +17,19 @@ data class ModelRegistrarUsuario(
     val descripcionUsuario: String
 )
 
-/*data class ModelUsuarioConReceta(
+data class ModelRegistrarPerfil(
     val idUsuario: Int,
+    val codigoUsuario: String,
     val nombreUsuario: String,
-    val imagenUsuario: String,
-    val tituloReceta: String,
-    val imagenReceta: String
-)*/
+    val correoUsuario: String,
+    val contrasenaUsuario: String,
+    val descripcionUsuario: String
+)
+
+//data class ModelUsuarioConReceta(
+//    val idUsuario: Int,
+//    val nombreUsuario: String,
+//    val imagenUsuario: String,
+//    val tituloReceta: String,
+//    val imagenReceta: String
+//)
