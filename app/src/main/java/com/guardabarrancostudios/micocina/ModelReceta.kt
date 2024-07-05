@@ -9,3 +9,10 @@ data class ModelReceta(
     val nombreCategoria: String,
     val tipoDificultad: String
 )
+
+/*data class ModelRecetaInicio(
+    val id: Int,
+    val tituloReceta: String,
+    val descripcion: String,
+    val imagen: String
+)*/

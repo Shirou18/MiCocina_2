@@ -96,9 +96,9 @@ class Receta : AppCompatActivity() {
                     Toast.makeText(this@Receta, "Error al crear la receta", Toast.LENGTH_SHORT).show()
                 }
             }
-
+            //Maneja los errores del dominio
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@Receta, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Receta, "Error:${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
