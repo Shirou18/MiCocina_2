@@ -49,20 +49,22 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/NavegadorPerfil"
+        app:layout_constraintBottom_toTopOf="@id/NavegadorInicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/NavegadorPerfil"
+        android:id="@+id/NavegadorInicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_dynamic_neutral70"
+        android:background="@color/azul_oscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/recyclerRecetasInicio"
         app:layout_constraintStart_toStartOf="@id/recyclerRecetasInicio"
-        app:layout_constraintTop_toBottomOf="@id/recyclerRecetasInicio">
+        app:layout_constraintTop_toBottomOf="@id/recyclerRecetasInicio"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="593dp">
 
         <ImageButton
             android:id="@+id/btnInicio"
@@ -70,13 +72,15 @@
             android:layout_height="65dp"
             android:layout_marginStart="44dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/azul_claro"
             android:padding="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/inicio"
-            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
-            app:layout_constraintStart_toStartOf="@id/NavegadorPerfil"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
-            app:layout_constraintVertical_bias="0.514" />
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorInicio"
+            app:layout_constraintStart_toStartOf="@id/NavegadorInicio"
+            app:layout_constraintTop_toTopOf="@id/NavegadorInicio"
+            app:layout_constraintVertical_bias="0.514"
+            app:tint="@color/azul_claro2" />
 
         <ImageButton
             android:id="@+id/btnCrear"
@@ -86,11 +90,10 @@
             android:padding="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/crear"
-            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorInicio"
             app:layout_constraintEnd_toStartOf="@id/btnPerfil"
             app:layout_constraintStart_toEndOf="@id/btnInicio"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@id/NavegadorInicio" />
 
         <ImageButton
             android:id="@+id/btnPerfil"
@@ -100,10 +103,10 @@
             android:padding="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/perfil"
-            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
-            app:layout_constraintEnd_toEndOf="@id/NavegadorPerfil"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorInicio"
+            app:layout_constraintEnd_toEndOf="@id/NavegadorInicio"
             app:layout_constraintStart_toEndOf="@id/btnCrear"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
+            app:layout_constraintTop_toTopOf="@id/NavegadorInicio" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

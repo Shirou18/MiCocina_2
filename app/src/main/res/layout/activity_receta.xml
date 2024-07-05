@@ -16,7 +16,9 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <TextView
             android:id="@+id/txtTituloCrear"
@@ -30,75 +32,21 @@
             android:textSize="30sp" />
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/NavegadorPerfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/material_dynamic_neutral70"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/btnInicio"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="44dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/inicio"
-            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
-            app:layout_constraintStart_toStartOf="@id/NavegadorPerfil"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
-            app:layout_constraintVertical_bias="0.514" />
-
-        <ImageButton
-            android:id="@+id/btnCrear"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/crear"
-            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
-            app:layout_constraintEnd_toStartOf="@id/btnPerfil"
-            app:layout_constraintStart_toEndOf="@id/btnInicio"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageButton
-            android:id="@+id/btnPerfil"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/perfil"
-            app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
-            app:layout_constraintEnd_toEndOf="@id/NavegadorPerfil"
-            app:layout_constraintStart_toEndOf="@id/btnCrear"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="754dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/NavegadorPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/NavegadorCrear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cabeceraCrear">
+        app:layout_constraintTop_toBottomOf="@id/cabeceraCrear">
 
         <LinearLayout
             android:id="@+id/contenidoCrear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="202dp">
 
             <TextView
                 android:id="@+id/txtTituloReceta"
@@ -189,8 +137,8 @@
 
             <RadioGroup
                 android:id="@+id/radioDificultad"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
@@ -228,14 +176,12 @@
             <EditText
                 android:id="@+id/edtxtTiempoPreparacion"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:background="@color/material_dynamic_neutral90"
-                android:ems="20"
+                android:background="@color/material_dynamic_neutral_variant90"
                 android:hint="@string/txtHintTimepoPreparacion"
-                android:inputType="text"
                 android:textColorHint="@android:color/darker_gray" />
 
             <TextView
@@ -261,6 +207,7 @@
                 android:inputType="text"
                 android:textColorHint="@android:color/darker_gray" />
 
+
             <TextView
                 android:id="@+id/txtTituloFoto"
                 android:layout_width="match_parent"
@@ -274,19 +221,18 @@
 
             <ImageView
                 android:id="@+id/imgReceta"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_launcher_foreground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSubirImagen" />
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_launcher_foreground" />
 
             <Button
                 android:id="@+id/btnSeleccionarImagen"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:text="@string/btnImgReceta"
                 app:icon="@drawable/camera" />
@@ -296,7 +242,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
                 android:backgroundTint="@android:color/holo_green_light"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
@@ -305,5 +253,61 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/NavegadorCrear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul_oscuro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="593dp">
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/inicio"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorCrear"
+            app:layout_constraintStart_toStartOf="@id/NavegadorCrear"
+            app:layout_constraintTop_toTopOf="@id/NavegadorCrear"
+            app:layout_constraintVertical_bias="0.514" />
+
+        <ImageButton
+            android:id="@+id/btnCrear"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/azul_claro"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/crear"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorCrear"
+            app:layout_constraintEnd_toStartOf="@id/btnPerfil"
+            app:layout_constraintStart_toEndOf="@id/btnInicio"
+            app:layout_constraintTop_toTopOf="@id/NavegadorCrear"
+            app:tint="@color/azul_claro2" />
+
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/perfil"
+            app:layout_constraintBottom_toBottomOf="@id/NavegadorCrear"
+            app:layout_constraintEnd_toEndOf="@id/NavegadorCrear"
+            app:layout_constraintStart_toEndOf="@id/btnCrear"
+            app:layout_constraintTop_toTopOf="@id/NavegadorCrear" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

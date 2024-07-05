@@ -38,10 +38,10 @@ class Perfil : AppCompatActivity() {
             startActivity(paginaCrear)
         }
 
-        binding.btnPerfil.setOnClickListener {
-            val paginaPerfil = Intent(this, Perfil::class.java)
-            startActivity(paginaPerfil)
-        }
+//        binding.btnPerfil.setOnClickListener {
+//            val paginaPerfil = Intent(this, Perfil::class.java)
+//            startActivity(paginaPerfil)
+//        }
 
         binding.btnRegistrarse.setOnClickListener {
             actualizarPerfil()

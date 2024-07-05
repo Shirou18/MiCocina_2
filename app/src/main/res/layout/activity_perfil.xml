@@ -31,40 +31,40 @@
             android:id="@+id/tvBienvenido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/txtBienvenido"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenLogin"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenLogin" />
 
         <EditText
             android:id="@+id/edtxtCodPerfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/txtCodUsuario"
             android:inputType="text"
-            android:text="@string/txtCodUsuario"
             android:textColor="@color/design_default_color_on_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBienvenido"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp" />
+            app:layout_constraintTop_toBottomOf="@+id/tvBienvenido" />
 
         <EditText
             android:id="@+id/edtxtNomPerfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/txtNomUsuario"
             android:inputType="text"
-            android:text="@string/txtNomUsuario"
             android:textColor="@color/design_default_color_on_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtxtCodPerfil"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp" />
+            app:layout_constraintTop_toBottomOf="@+id/edtxtCodPerfil" />
 
         <EditText
             android:id="@+id/edtxtCorrepPerfil"
@@ -72,8 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
+            android:hint="@string/txtCorreo"
             android:inputType="text"
-            android:text="@string/txtCorreo"
             android:textColor="@color/design_default_color_on_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,31 +83,14 @@
             android:id="@+id/edtxtDescripPerfil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/txtDescripcion"
             android:inputType="text"
-            android:text="@string/txtDescripcion"
             android:textColor="@color/design_default_color_on_secondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtxtCorrepPerfil"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp" />
-
-        <Button
-            android:id="@+id/btnRegistrarse"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="37dp"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="@string/btnEditarPerfil"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtxtContraseñaPerfil" />
+            app:layout_constraintTop_toBottomOf="@+id/edtxtCorrepPerfil" />
 
         <EditText
             android:id="@+id/edtxtContraseñaPerfil"
@@ -117,10 +100,26 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/txtcontarseña"
+            android:hint="@string/txtcontarseña"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtxtDescripPerfil" />
+
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/btnEditarPerfil"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtxtContraseñaPerfil" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -128,11 +127,13 @@
         android:id="@+id/NavegadorPerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_dynamic_neutral70"
+        android:background="@color/azul_oscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cabeceraPerfil">
+        app:layout_constraintTop_toBottomOf="@id/cabeceraPerfil"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="593dp">
 
         <ImageButton
             android:id="@+id/btnInicio"
@@ -159,21 +160,23 @@
             app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
             app:layout_constraintEnd_toStartOf="@id/btnPerfil"
             app:layout_constraintStart_toEndOf="@id/btnInicio"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
 
         <ImageButton
             android:id="@+id/btnPerfil"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/azul_claro"
             android:padding="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/perfil"
             app:layout_constraintBottom_toBottomOf="@id/NavegadorPerfil"
             app:layout_constraintEnd_toEndOf="@id/NavegadorPerfil"
             app:layout_constraintStart_toEndOf="@id/btnCrear"
-            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil" />
+            app:layout_constraintTop_toTopOf="@id/NavegadorPerfil"
+            app:tint="@color/azul_claro2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
