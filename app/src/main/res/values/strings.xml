@@ -81,5 +81,7 @@
 
     <!-- Valores de LayoutBuscarReceta-->
     <string name="txtNomReceta_BuscarReceta">Nombre de la receta.</string>
+    <string name="etmDrescrip_RecetaInicio">Descripción de la receta.</string>
+    <string name="txtDescrip_RecetaInicio">Descripción de la receta</string>
     <!-- Fin de Valores de LayoutRegistrar-->
 </resources>

@@ -16,9 +16,11 @@ class InicioAdaptador(
     inner class RecetaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val txtTitulo = itemView.findViewById<TextView>(R.id.txtTituloRecetaInicio)
         private val imagenReceta = itemView.findViewById<ImageView>(R.id.imgRecetaInicio)
+        private val descripcionReceta = itemView.findViewById<TextView>(R.id.txtDescrip_RecetaInicio) // Agregado
 
         fun bind(receta: ModelUsuarioConReceta) {
             txtTitulo.text = receta.tituloReceta
+            descripcionReceta.text = receta.descripcionReceta // Agregado
             Glide.with(itemView.context)
                 .load(receta.imagenReceta)
                 .into(imagenReceta)
