@@ -6,11 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.guardabarrancostudios.micocina.databinding.ActivityInicioBinding
 import com.google.gson.Gson
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.Result
 import com.google.gson.reflect.TypeToken
+//import com.guardabarrancostudios.micocina.adapters.InicioAdaptador
+import com.guardabarrancostudios.micocina.databinding.ActivityInicioBinding
 
 class Inicio : AppCompatActivity() {
 
@@ -18,28 +19,35 @@ class Inicio : AppCompatActivity() {
     private lateinit var adaptador: InicioAdaptador
     private lateinit var sharedPreferences: SharedPreferences
     private var idUsuario: Int = -1
+    private var idReceta: Int = -1 // Variable para almacenar el ID de la receta
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Inicializar SharedPreferences
         sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
         idUsuario = sharedPreferences.getInt("idUsuario", -1)
 
+        // Configurar RecyclerView y adaptador
         binding.recyclerRecetasInicio.layoutManager = LinearLayoutManager(this)
         adaptador = InicioAdaptador(emptyList()) { receta ->
-            val intent = Intent(this, DetalleReceta::class.java).apply {
-                putExtra("tituloReceta", receta.tituloReceta)
-                putExtra("descripcionReceta", receta.descripcionReceta)
-                putExtra("imagenReceta", receta.imagenReceta)
-            }
+            // Guardar el ID de la receta seleccionada en SharedPreferences
+            val editor = sharedPreferences.edit()
+            editor.putInt("idReceta", receta.idReceta)
+            editor.apply()
+
+            // Abrir la actividad de detalle de receta
+            val intent = Intent(this, DetalleReceta::class.java)
             startActivity(intent)
         }
         binding.recyclerRecetasInicio.adapter = adaptador
 
+        // Cargar las recetas del usuario actual
         cargarRecetas()
 
+        // Configurar botones de navegación
         binding.btnInicio.setOnClickListener {
             // No necesitas reiniciar la actividad actual
             val paginaInicio = Intent(this, Receta::class.java)
@@ -63,7 +71,9 @@ class Inicio : AppCompatActivity() {
     }
 
     private fun cargarRecetas() {
-        val url = "http://www.micocina.somee.com/api/Recetas_API?idUsuario=$idUsuario"
+        // Obtener el ID de la receta seleccionada desde SharedPreferences
+        val idReceta = sharedPreferences.getInt("idReceta", -1)
+        val url = "http://www.micocina.somee.com/api/Recetas_API?idUsuario=$idUsuario&idReceta=$idReceta"
 
         Fuel.get(url).responseString { _, _, result ->
             when (result) {

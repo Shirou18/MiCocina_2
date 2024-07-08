@@ -28,6 +28,12 @@ class Perfil : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // Inicializar SharedPreferences
+        sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
+
+        // Obtener el ID del usuario guardado en SharedPreferences
+        idUsuario = sharedPreferences.getInt("idUsuario", -1)
+
         binding.btnInicio.setOnClickListener {
             val paginaBuscar = Intent(this, Inicio::class.java)
             startActivity(paginaBuscar)
@@ -38,23 +44,9 @@ class Perfil : AppCompatActivity() {
             startActivity(paginaCrear)
         }
 
-//        binding.btnPerfil.setOnClickListener {
-//            val paginaPerfil = Intent(this, Perfil::class.java)
-//            startActivity(paginaPerfil)
-//        }
-
         binding.btnRegistrarse.setOnClickListener {
             actualizarPerfil()
-            //obtenerPerfil()
-
-            // Inicializar SharedPreferences
-            sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE)
-
-            // Obtener el ID del usuario guardado en SharedPreferences
-            idUsuario = sharedPreferences.getInt("idUsuario", -1)
         }
-
-
     }
 
     private fun abrirLogin() {
@@ -62,8 +54,6 @@ class Perfil : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-
 
     private fun actualizarPerfil() {
         val codigoUsuario = binding.edtxtCodPerfil.text.toString().trim()

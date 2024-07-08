@@ -28,7 +28,20 @@ data class ModelRegistrarPerfil(
 
 data class ModelUsuarioConReceta(
     val idUsuario: Int,
+    val idReceta: Int,
     val tituloReceta: String,
     val imagenReceta: String,
     val descripcionReceta: String
+)
+
+data class ModelUsuarioConDetalle(
+    val idUsuario: Int,
+    val idReceta: Int,
+    val tituloReceta: String,
+    val nombreCategoria: String,
+    val tipoDificultad: String,
+    val descripcionReceta: String,
+    val tiempoPreparacion: String,
+    val ingredientes: String,
+    val favorito: String
 )
