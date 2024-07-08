@@ -43,5 +43,5 @@ data class ModelUsuarioConDetalle(
     val descripcionReceta: String,
     val tiempoPreparacion: String,
     val ingredientes: String,
-    val favorito: String
+    val favorito: Boolean
 )
